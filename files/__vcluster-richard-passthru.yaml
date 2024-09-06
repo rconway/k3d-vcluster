@@ -1,0 +1,26 @@
+# this approach relies upon ssl-passthough being enabled
+# E.g. for ingress-nginx...
+# controller:
+#   extraArgs:
+#     enable-ssl-passthrough: "true"
+
+controlPlane:
+ ingress:
+   enabled: true
+   host: cluster-richard.k3d.svc.rconway.uk
+ proxy:
+   extraSANs:
+   - cluster-richard.k3d.svc.rconway.uk
+
+exportKubeConfig:
+  server: https://cluster-richard.k3d.svc.rconway.uk
+
+sync:
+  fromHost:
+    # nodes:
+    #   enabled: true
+    ingressClasses:
+      enabled: true
+  toHost:
+    ingresses:
+      enabled: true
