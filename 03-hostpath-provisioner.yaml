@@ -58,7 +58,7 @@ subjects:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: storage-provisioner
+  name: hostpath-storage-provisioner
   namespace: kube-system
 spec:
   serviceAccountName: storage-provisioner
